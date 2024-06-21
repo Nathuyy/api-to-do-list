@@ -10,8 +10,8 @@ const getAll = async (req, res) => {
 };
 
 const createTask = async (request, response) => {
-    const createdTask = await taskModels.createTask(request.body);
-    return response.status(201).json(createdTask);
+    const createdTask = await taskModels.createTask(request.body)
+    return response.status(201).json(createdTask)
 };
 
 
@@ -20,18 +20,17 @@ const deleteTask = async (request, response) => {
   
     await taskModels.deleteTask(id);
     return response.status(204).json();
-  };
+};
 
-const uptadeTask = async (request, response) => {
+const updateTask = async (request, response) => {
     const { id } = request.params;
-    await taskModels.uptadeTask(id, request.body);
+    await taskModels.updateTask(id, request.body);
     return response.status(204).json();
-
 }
 
 module.exports = {
     getAll,
     createTask,
     deleteTask,
-    uptadeTask
+    updateTask 
 };
